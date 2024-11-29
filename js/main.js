@@ -42,25 +42,6 @@ function sum(firstNum, secondNum, selectedOperation){
     }
 }
 
-function saveNewResult(result){
-    const divHistory = document.querySelector('.calc__results');
-    const newResult = document.createElement('span');
-    
-    newResult.textContent = result;
-    newResult.classList.add('calc__new-result')
-
-    divHistory.prepend(newResult);
-
-}
-
-function deleteSelectedResult(){
-    const divHistory = document.querySelectorAll('.calc__new-result');
-
-    divHistory.forEach((result) => {
-        result.addEventListener('click', ()=> {result.remove()});
-    })
-}
-
 function calculation(){
     const selectOperation = document.getElementById('select__operation').value;
     const firstNumber = document.getElementById('first__number').value;
@@ -72,7 +53,6 @@ function calculation(){
     valueExpression.textContent = calculateValue;
 
     saveNewResult(calculateValue);
-    deleteSelectedResult();
 }
 
 buttonEquals.addEventListener('click', calculation);
